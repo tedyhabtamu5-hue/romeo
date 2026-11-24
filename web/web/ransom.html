@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>LOCKED</title>
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#05060a;color:#fff;display:flex;
+align-items:center;justify-content:center;min-height:100vh;text-align:center}
+.box{max-width:330px;padding:24px}.skull{font-size:56px}
+h1{font-size:20px;letter-spacing:2px;margin:14px 0 4px;color:#ff3b3b}
+p{font-size:13px;color:#9aa3b2;line-height:1.6}
+input{width:100%;box-sizing:border-box;padding:13px;margin:16px 0 10px;border-radius:9px;
+border:1px solid #2a3040;background:#11141c;color:#fff;text-align:center;letter-spacing:2px}
+button{width:100%;padding:13px;border:0;border-radius:9px;background:#ff3b3b;color:#fff;font-weight:700}
+.shake{animation:s .3s}@keyframes s{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.ok{color:#37d67a}
+</style></head><body><div class="box" id="b">
+<div class="skull">💀</div><h1>DEVICE ENCRYPTED</h1>
+<p>Your files and photos are held. Enter the unlock code.</p>
+<input id="p" placeholder="UNLOCK CODE"><button onclick="go()">UNLOCK</button><p id="m"></p>
+</div><script>
+var CODE=new URLSearchParams(location.search).get('c')||'ROMEO-2026';
+function go(){var b=document.getElementById('b'),m=document.getElementById('m');
+if(document.getElementById('p').value.trim().toUpperCase()===CODE.toUpperCase()){
+ b.innerHTML='<div class="skull">✅</div><h1 class="ok">ACCESS RESTORED</h1><p>Files intact.</p>';}
+else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');m.textContent='Wrong code.';}}
+</script></body></html>
